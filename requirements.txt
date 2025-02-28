@@ -1,0 +1,8 @@
+openai == 0.28
+chromadb
+phidata
+typer
+rich
+tiktoken
+numpy
+python-dotenv
