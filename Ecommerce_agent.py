@@ -40,6 +40,8 @@ def retrieve_query(query):
         return results['documents'][0][0]
     return "Sorry, I couldn't find relevant information."
 
+# function to get the response for the user query
+
 def llm_response(prompt):
     """Call OpenAI's LLM API to generate a response."""
     response = openai.ChatCompletion.create(
@@ -48,6 +50,8 @@ def llm_response(prompt):
                   {"role": "user", "content": prompt}]
     )
     return response["choices"][0]["message"]["content"]
+
+#build AI Agent using phi agent
 
 def ecommerce_agent(user: str = "user"):
     """Builds and returns the customer support AI agent with OpenAI integration."""
@@ -68,6 +72,9 @@ def ecommerce_agent(user: str = "user"):
     agent.tools = {"ask_openai": ask_openai_tool}  
 
     return agent
+
+
+#final response code where agent uses openAI llm as tool and give the response
 
 def final_response(query):
     """Generate AI response using OpenAI LLM via Phi agent."""
